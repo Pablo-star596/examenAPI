@@ -51,10 +51,12 @@ app.get("/tasks", (req, res) => {
 
 // Agregar una tarea
 app.post("/tasks", (req, res) => {
-    const { task } = req.body;
-    if (!task) return res.status(400).json({ error: "Tarea requerida" });
-    addTask(task);
-    res.json({ message: `Tarea "${task}" agregada.`, tasks });
+    const { task } = req.body;  
+    if (!task) {
+        return res.status(400).json({ error: "La tarea es requerida" });
+    }
+    tasks.push(task);
+    res.status(201).json({ message: "Tarea agregada", tasks });
 });
 
 // Eliminar una tarea por índice
