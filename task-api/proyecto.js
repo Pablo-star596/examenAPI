@@ -1,7 +1,10 @@
 // Importar express
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
 
 // Middleware para manejar JSON
 app.use(express.json());
@@ -69,7 +72,7 @@ app.delete("/tasks/:id", (req, res) => {
 
 // Iniciar el servidor
 app.listen(3000, () => {
-    console.log("Servidor corriendo en http://localhost:3000");
+    console.log("Servidor corriendo en http://localhost:3001");
 });
 
 // Exportar las funciones
